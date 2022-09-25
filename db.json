@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Learn HTML",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "title": "Learn CSS",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "title": "Learn Java Script",
+      "completed": false
+    },
+    {
+      "title": "Learn React JS",
+      "completed": false,
+      "id": 4
+    }
+  ]
+}

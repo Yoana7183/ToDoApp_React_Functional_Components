@@ -1,0 +1,118 @@
+.done {
+  text-decoration: line-through;
+  color: brown;
+}
+
+
+html {
+  background-image: url(/background.jpg);
+  background-size: cover;
+
+}
+
+.page {
+  margin: 0;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.header {
+  margin-top: 100px;
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.todo-add {
+  width: 500px;
+  height: 50px;
+  font-size: 25px;
+  background: transparent;
+  border-radius: 10px;
+  border: transparent;
+
+}
+
+.todo-add-btn {
+  margin-left: 20px;
+
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  color: brown;
+
+}
+
+.todo-add-btn:hover {
+  font-size: 40px;
+}
+
+ol {
+  margin: 30px 30px;
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
+li {
+  font-size: 30px;
+  padding-left: .5em;
+  border-bottom-style: solid;
+  border-width: 0.5px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+
+}
+
+#title {
+  font-size: 30px;
+
+}
+
+.deleteBtn {
+  width: 100px;
+  height: 30px;
+  font-size: 22px;
+  background: transparent;
+  border: transparent;
+  border-radius: 10px;
+  color: rgb(66, 2, 2);
+  margin-left: 100px;
+
+}
+
+.deleteBtn:hover {
+  font-size: 35px;
+  margin-left: 100px;
+  margin-right: 20px;
+}
+
+.completeBtn:hover {
+  font-size: 35px;
+
+}
+
+.undoneBtn:hover {
+  font-size: 35px;
+}
+
+.completeBtn {
+  width: 100px;
+  height: 30px;
+  font-size: 22px;
+  background: transparent;
+  border: transparent;
+  border-radius: 10px;
+  color: green;
+}
+
+.undoneBtn {
+  width: 100px;
+  height: 30px;
+  font-size: 30px;
+  background: transparent;
+  border: transparent;
+  border-radius: 10px;
+  color: brown;
+}
