@@ -1,50 +1,46 @@
 import React from "react";
 
 
-class ListTodos extends React.Component {
+const ListTodos = ({
+    
+	todos,
+	deleteTodo,
+	completeTodo,
+	undoneTodo
+}) => {
 
 
-	constructor(props) {
-		super(props)
-		this.state = {
-			todoItems: this.props.todosFromProps
-		}
-	}
+	return (
+		<ol className="todo-list-items">
+			{
+				todos.map(todo => {
 
-	render() {
+					if (!todo.completed) {
 
+						return <li className="todoTitle" key={todo.id} dataid={todo.id}>
+							<span id="title">{todo.title}</span>
 
-		return (
-			<ol className="todo-list-items">
-				{
-					this.props.todosFromProps.map(todo => {
+							<button className="deleteBtn" id={todo.id} onClick={() => { deleteTodo(todo) }}>Delete</button>
+							<button id={todo.id} className="completeBtn" onClick={() => { completeTodo(todo) }}>Done</button>
+						</li>
 
-						if (!todo.completed) {
+					} else {
 
-							return <li className="todoTitle" key={todo.id.toString()}>
-								<span id="title">{todo.title}</span>
-						
-								<button className="deleteBtn" id={todo.id} onClick={() => { this.props.deleteTodo(todo) }}>Delete</button>
-								<button id={todo.id} className="completeBtn" onClick={() => { this.props.completeTodo(todo) }}>Done</button>
-							</li>
+						return <li className="todoTitle" id="title" key={todo.id} dataid={todo.id}>
+							<span className="done" id="title" >{todo.title}</span>
 
-						} else {
+							<button id={todo.id} className="deleteBtn" onClick={() => { deleteTodo(todo) }}>Delete</button>
+							<button id={todo.id} className="undoneBtn" onClick={() => { undoneTodo(todo) }}>Undone</button>
+						</li>
 
-							return <li className="todoTitle"id="title" key={todo.id.toString()}>
-								<span className="done"id="title" >{todo.title}</span>
-					
-								<button id={todo.id} className="deleteBtn" onClick={() => { this.props.deleteTodo(todo) }}>Delete</button>
-								<button id={todo.id}  className="undoneBtn" onClick={() => { this.props.undoneTodo(todo) }}>Undone</button>
-							</li>
-							
-						}
-                       
-					})
+					}
 
-				}
-			</ol>
-		);
-	}
+				})
+
+			}
+		</ol>
+	);
+
 }
 
 export default ListTodos

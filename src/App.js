@@ -8,14 +8,12 @@ import TodoCounter from './components/todoCounter';
 
 
 
-function TodoApp(props) {
+const TodoApp = () => {
 
 	let url = ' http://localhost:8000/todos'
 	let [todos, setTodos] = useState([])
 
-
-
-	const fetchTodos = (url) => {
+	let fetchTodos = () => {
 		fetch(url)
 			.then(r => {
 				if (r.ok) {
@@ -27,7 +25,8 @@ function TodoApp(props) {
 			})
 			.catch(err => console.warn(err));
 	}
-	useEffect(fetchTodos,[])
+
+	useEffect(fetchTodos, [])
 
 	const addTodo = (title) => {
 
@@ -57,9 +56,6 @@ function TodoApp(props) {
 			.catch(err => console.warn(err));
 	}
 
-
-
-
 	const deleteTodo = (todo) => {
 
 		var deleteURL = url + '/' + todo.id;
@@ -72,13 +68,8 @@ function TodoApp(props) {
 		})
 			.then(res => {
 				if (res.ok) {
-
-					var index = this.state.todos.indexOf(todo);
-					this.state.todos.splice(index, 1);
-
-					setTodos([...todos, todo])
+					setTodos([...todos.filter(({ id }) => id !== todo.id)]);
 				}
-
 				return res
 			})
 			.catch(err => console.warn(err));
@@ -99,7 +90,7 @@ function TodoApp(props) {
 			.then(res => {
 				if (res.ok) {
 
-					setTodos([...todos, todo])
+					setTodos([...todos])
 				}
 				else { return res }
 
@@ -121,7 +112,7 @@ function TodoApp(props) {
 			.then(res => {
 				if (res.ok) {
 
-					setTodos([...todos, todo])
+					setTodos([...todos])
 				}
 				else { return res }
 			})
@@ -129,13 +120,12 @@ function TodoApp(props) {
 	}
 
 
-
 	return (
 		<div className="page">
 			<Header />
 			<main className="todo-app">
 				<AddTodo addTodo={addTodo} />
-				<ListTodos todosFromProps={[todos]}
+				<ListTodos todos={todos}
 					deleteTodo={deleteTodo}
 					completeTodo={completeTodo}
 					undoneTodo={undoneTodo} />

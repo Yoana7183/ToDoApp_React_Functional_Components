@@ -2,17 +2,10 @@ import React, { useState, createRef } from 'react';
 
 
 
-function AddTodo(props) {
+const AddTodo=({addTodo})=> {
 
     let inputRef = createRef();
     let [value, setValue] = useState("")
-
-
-    const clickHandler = (e) => {
-        props.addTodo(value)
-        setValue("")
-        inputRef.current.focus()
-    }
 
     return (
         <div className="todo-add-div">
@@ -25,7 +18,10 @@ function AddTodo(props) {
                 onChange={(e) => { setValue(e.target.value) }} />
             <button
                 className="todo-add-btn"
-                onClick={clickHandler}
+                onClick={(e) => {
+                    addTodo(value)
+                    setValue("")
+                }}
                 type="button">Add</button>
         </div>
     );

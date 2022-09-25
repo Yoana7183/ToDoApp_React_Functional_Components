@@ -1,12 +1,11 @@
 import React from 'react';
 
-function TodoCounter(props) {
+const TodoCounter = ({todos})=> {
 
-    const counter = props.todos.length
     return (
 
         <div className="counter-todo">
-            My Todo List Contains: <span className="space">{counter} Items</span>
+            My Todo List Contains: <span className="space">{todos.length} Items</span>
         </div>
     );
 
