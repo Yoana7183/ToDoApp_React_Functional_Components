@@ -79,9 +79,8 @@ Steps to start the Todo App:
 
 More information and examples : https://github.com/facebook/create-react-app
 
-npx create-react-app my-app
-cd my-app
-npm start
+1.npm install /(will install automatically node_modules)/
+2.npm start
 
 2. Install Json-server 
 
